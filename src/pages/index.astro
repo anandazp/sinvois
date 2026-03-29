@@ -1,17 +1,117 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
 ---
+<Layout title="Cara Simpel Buat Invois">
+  <Navbar variant="landing" />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+    <h1 class="font-heading font-bold text-[2.618rem] md:text-[4.236rem] leading-tight text-primary mb-8">
+      Cara Simpel Buat Invois<br />1 Menit Langsung Jadi
+    </h1>
+    <a href="/create" class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity">
+      Buat Invois
+    </a>
+  </section>
+
+  <!-- Fitur untuk siapa -->
+  <section id="fitur" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6">
+          Dibuat untuk segala keperluanmu
+        </h2>
+        <ul class="space-y-3 text-secondary">
+          <li class="flex items-center gap-3">
+            <span class="text-primary font-bold">✓</span> Usaha Pribadi
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-primary font-bold">✓</span> Pekerja Kantoran
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-primary font-bold">✓</span> Freelancer
+          </li>
+        </ul>
+      </div>
+      <div class="flex justify-center">
+        <img
+          src="https://illustrations.popsy.co/amber/work-from-home.svg"
+          alt="Ilustrasi membuat invoice"
+          class="w-full max-w-sm"
+          width="400"
+          height="400"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Kenapa Simpel Invois -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10">
+      Kenapa harus pake Simpel Invois?
+    </h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-secondary/30 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Gratis</h3>
+        <p class="text-secondary text-base">Kamu nggak perlu keluar uang sama sekali.</p>
+      </div>
+      <div class="border border-secondary/30 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Simpel</h3>
+        <p class="text-secondary text-base">Cukup isi form bentar, invois langsung jadi.</p>
+      </div>
+      <div class="border border-secondary/30 rounded-2xl p-6">
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Aman</h3>
+        <p class="text-secondary text-base">Semua data diproses langsung di dalam browser tanpa disimpan ke dalam server.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bottom -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="flex justify-center order-2 md:order-1">
+        <img
+          src="https://illustrations.popsy.co/amber/freelancer.svg"
+          alt="Ilustrasi freelancer"
+          class="w-full max-w-sm"
+          width="400"
+          height="400"
+          loading="lazy"
+        />
+      </div>
+      <div class="order-1 md:order-2">
+        <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6">
+          Jangan sampe bisnismu terganggu urusan sepele
+        </h2>
+        <a href="/create" class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity">
+          Buat Invois
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10">FAQ</h2>
+    <div class="space-y-6 max-w-2xl">
+      <div>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">Apakah data saya disimpan?</h3>
+        <p class="text-secondary text-base">Tidak. Semua data hanya ada di browser kamu dan langsung hilang saat halaman ditutup.</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">Format apa yang bisa didownload?</h3>
+        <p class="text-secondary text-base">Invois bisa didownload dalam format PDF.</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">Apakah bisa dipakai di HP?</h3>
+        <p class="text-secondary text-base">Bisa. Simpel Invois didesain mobile-first dan responsif di semua ukuran layar.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-secondary/20 py-8 text-center text-secondary text-sm">
+    © {new Date().getFullYear()} Simpel Invois. Gratis selamanya.
+  </footer>
+</Layout>

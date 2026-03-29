@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# Simpel Invois
+
+Aplikasi web untuk membuat invoice dengan cara yang simpel. Isi form, preview langsung jadi, download PDF.
+
+## Tech Stack
+
+- [Astro 6](https://astro.build) — static site framework
+- [Tailwind CSS 4.2](https://tailwindcss.com) — styling
+- [html2canvas](https://html2canvas.hertzen.com) + [jsPDF](https://github.com/parallax/jsPDF) — PDF export (via CDN)
+
+## Fitur
+
+- Form invoice dengan validasi realtime
+- Preview invoice realtime di samping form
+- Dukungan 2 bahasa: Indonesia & Inggris (label preview otomatis berubah)
+- Dukungan 2 mata uang: IDR & USD (dengan konversi kurs)
+- Tambah/hapus item dinamis
+- Diskon, pajak/PPN, dan catatan (opsional)
+- Download hasil invoice sebagai PDF
+- Desain mobile-first, responsif di semua device
+
+## Halaman
+
+| Route | Deskripsi |
+|-------|-----------|
+| `/` | Landing page |
+| `/create` | Halaman pembuatan invoice |
+
+## Menjalankan Project
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install       # install dependencies
+npm run dev       # dev server di localhost:4321
+npm run build     # build production ke ./dist/
+npm run preview   # preview build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Desain
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Font**: Plus Jakarta Sans (heading), PT Sans (body)
+- **Warna**: `#14110F` (primer), `#B3B4B3` (sekunder), `#f3f3f4` (background)
