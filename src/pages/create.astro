@@ -1,105 +1,207 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
+
 <Layout title="Buat Invois">
   <Navbar variant="app" />
 
-  <main class="max-w-screen-xl mx-auto px-4 pb-8">
+  <main class="max-w-7xl mx-auto px-4 pb-8">
     <!-- Mobile: stack, Desktop: side by side -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
       <!-- FORM -->
       <div class="bg-white rounded-2xl border border-secondary/20 p-6">
-        <h1 class="font-heading font-bold text-[1.618rem] text-primary mb-6">Buat Invois</h1>
+        <h1 class="font-heading font-bold text-[1.618rem] text-primary mb-6">
+          Buat Invois
+        </h1>
 
         <form id="invoice-form" novalidate>
-
           <!-- Informasi Umum -->
-          <h2 class="font-heading font-semibold text-lg text-primary mb-4">Informasi Umum</h2>
+          <h2 class="font-heading font-semibold text-lg text-primary mb-4">
+            Informasi Umum
+          </h2>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div>
-              <label class="label">Bahasa Invois <span class="text-red-500">*</span></label>
+              <label class="label"
+                >Bahasa Invois <span class="text-red-500">*</span></label
+              >
               <select id="f-lang" name="lang" class="input" required>
                 <option value="id">Indonesia</option>
                 <option value="en">English</option>
               </select>
             </div>
             <div>
-              <label class="label">Mata Uang <span class="text-red-500">*</span></label>
+              <label class="label"
+                >Mata Uang <span class="text-red-500">*</span></label
+              >
               <select id="f-currency" name="currency" class="input" required>
                 <option value="IDR">IDR (Rp)</option>
                 <option value="USD">USD ($)</option>
               </select>
             </div>
             <div>
-              <label class="label">Nomor Invois <span class="text-red-500">*</span></label>
-              <input id="f-invoice-no" type="text" name="invoiceNo" class="input" placeholder="INV-001" required />
+              <label class="label"
+                >Nomor Invois <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-invoice-no"
+                type="text"
+                name="invoiceNo"
+                class="input"
+                placeholder="INV-001"
+                required
+              />
               <p class="err-msg hidden">Nomor invois wajib diisi.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label class="label">Nama Pengirim <span class="text-red-500">*</span></label>
-              <input id="f-from-name" type="text" name="fromName" class="input" placeholder="Nama kamu / perusahaan" required />
+              <label class="label"
+                >Nama Pengirim <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-from-name"
+                type="text"
+                name="fromName"
+                class="input"
+                placeholder="Nama klien"
+                required
+              />
               <p class="err-msg hidden">Nama pengirim wajib diisi.</p>
             </div>
             <div>
-              <label class="label">Alamat Pengirim <span class="text-red-500">*</span></label>
-              <input id="f-from-address" type="text" name="fromAddress" class="input" placeholder="Alamat kamu" required />
+              <label class="label"
+                >Alamat Pengirim <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-from-address"
+                type="text"
+                name="fromAddress"
+                class="input"
+                placeholder="Alamat klien"
+                required
+              />
               <p class="err-msg hidden">Alamat pengirim wajib diisi.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div>
-              <label class="label">Nama Penerima <span class="text-red-500">*</span></label>
-              <input id="f-to-name" type="text" name="toName" class="input" placeholder="Nama klien" required />
+              <label class="label"
+                >Nama Penerima <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-to-name"
+                type="text"
+                name="toName"
+                class="input"
+                placeholder="Nama kamu/perusahaan"
+                required
+              />
               <p class="err-msg hidden">Nama penerima wajib diisi.</p>
             </div>
             <div>
-              <label class="label">Alamat Penerima <span class="text-red-500">*</span></label>
-              <input id="f-to-address" type="text" name="toAddress" class="input" placeholder="Alamat klien" required />
+              <label class="label"
+                >Alamat Penerima <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-to-address"
+                type="text"
+                name="toAddress"
+                class="input"
+                placeholder="Alamat kamu"
+                required
+              />
               <p class="err-msg hidden">Alamat penerima wajib diisi.</p>
             </div>
             <div>
-              <label class="label">Bank Penerima <span class="text-red-500">*</span></label>
-              <input id="f-bank" type="text" name="bank" class="input" placeholder="BCA, Mandiri, dll" required />
+              <label class="label"
+                >Bank Penerima <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-bank"
+                type="text"
+                name="bank"
+                class="input"
+                placeholder="BCA, Mandiri, dll"
+                required
+              />
               <p class="err-msg hidden">Bank penerima wajib diisi.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label class="label">Nama Pemilik Rekening <span class="text-red-500">*</span></label>
-              <input id="f-account-name" type="text" name="accountName" class="input" placeholder="Nama pemilik rekening" required />
+              <label class="label"
+                >Nama Pemilik Rekening <span class="text-red-500">*</span
+                ></label
+              >
+              <input
+                id="f-account-name"
+                type="text"
+                name="accountName"
+                class="input"
+                placeholder="Nama pemilik rekening"
+                required
+              />
               <p class="err-msg hidden">Nama pemilik rekening wajib diisi.</p>
             </div>
             <div>
-              <label class="label">No. Rekening <span class="text-red-500">*</span></label>
-              <input id="f-account-no" type="text" name="accountNo" class="input" placeholder="1234567890" required />
+              <label class="label"
+                >No. Rekening <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-account-no"
+                type="text"
+                name="accountNo"
+                class="input"
+                placeholder="1234567890"
+                required
+              />
               <p class="err-msg hidden">Nomor rekening wajib diisi.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div>
-              <label class="label">Tanggal Terbit <span class="text-red-500">*</span></label>
-              <input id="f-issue-date" type="date" name="issueDate" class="input" required />
+              <label class="label"
+                >Tanggal Terbit <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-issue-date"
+                type="date"
+                name="issueDate"
+                class="input"
+                required
+              />
               <p class="err-msg hidden">Tanggal terbit wajib diisi.</p>
             </div>
             <div>
-              <label class="label">Tanggal Jatuh Tempo <span class="text-red-500">*</span></label>
-              <input id="f-due-date" type="date" name="dueDate" class="input" required />
+              <label class="label"
+                >Tanggal Jatuh Tempo <span class="text-red-500">*</span></label
+              >
+              <input
+                id="f-due-date"
+                type="date"
+                name="dueDate"
+                class="input"
+                required
+              />
               <p class="err-msg hidden">Tanggal jatuh tempo wajib diisi.</p>
             </div>
           </div>
 
           <!-- Detail Harga -->
           <div class="flex items-center justify-between mb-4">
-            <h2 class="font-heading font-semibold text-lg text-primary">Detail Harga</h2>
-            <button type="button" id="btn-add-item" class="border border-primary text-primary text-sm font-heading font-semibold px-3 py-1.5 hover:bg-primary hover:text-bg transition-colors">
+            <h2 class="font-heading font-semibold text-lg text-primary">
+              Detail Harga
+            </h2>
+            <button
+              type="button"
+              id="btn-add-item"
+              class="border border-primary text-primary text-sm font-heading font-semibold px-3 py-1.5 hover:bg-primary hover:text-bg transition-colors"
+            >
               + Tambah Item
             </button>
           </div>
@@ -111,220 +213,317 @@ import Navbar from '../components/Navbar.astro';
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="label">Diskon (Opsional)</label>
-              <input id="f-discount" type="number" name="discount" class="input" placeholder="0" min="0" />
+              <input
+                id="f-discount"
+                type="number"
+                name="discount"
+                class="input"
+                placeholder="0"
+                min="0"
+              />
             </div>
             <div>
               <label class="label">Pajak / PPN (Opsional)</label>
               <div class="relative">
-                <input id="f-tax" type="number" name="tax" class="input pr-8" placeholder="0" min="0" max="100" />
-                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-sm">%</span>
+                <input
+                  id="f-tax"
+                  type="number"
+                  name="tax"
+                  class="input pr-8"
+                  placeholder="0"
+                  min="0"
+                  max="100"
+                />
+                <span
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-sm"
+                  >%</span
+                >
               </div>
             </div>
           </div>
 
           <div class="mb-6">
             <label class="label">Catatan Invois (Opsional)</label>
-            <textarea id="f-notes" name="notes" class="input resize-none h-24" placeholder="Tuliskan catatan untuk klien Anda."></textarea>
+            <textarea
+              id="f-notes"
+              name="notes"
+              class="input resize-none h-24"
+              placeholder="Tuliskan catatan untuk klien Anda."></textarea>
           </div>
-
         </form>
 
-        <button id="btn-reset" type="button" class="w-full border border-secondary text-secondary font-heading font-semibold py-3 hover:border-primary hover:text-primary transition-colors">
+        <button
+          id="btn-reset"
+          type="button"
+          class="w-full border border-secondary text-secondary font-heading font-semibold py-3 hover:border-primary hover:text-primary transition-colors"
+        >
           Reset Form
         </button>
       </div>
 
       <!-- PREVIEW -->
       <div class="flex flex-col gap-4">
-        <div id="invoice-preview" class="bg-white rounded-2xl border border-secondary/20 p-8 flex-1">
+        <div
+          id="invoice-preview"
+          class="bg-white rounded-2xl border border-secondary/20 p-8 flex-1"
+        >
           <!-- injected by JS -->
         </div>
-        <button id="btn-download" type="button" disabled
-          class="w-full bg-primary text-bg font-heading font-semibold py-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
+        <button
+          id="btn-download"
+          type="button"
+          disabled
+          class="w-full bg-primary text-bg font-heading font-semibold py-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        >
           Download Invois
         </button>
       </div>
-
     </div>
   </main>
 </Layout>
 
 <!-- html2canvas + jsPDF via CDN -->
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+></script>
 
 <script is:inline>
-// ─── i18n labels ───────────────────────────────────────────────────────────
-const LABELS = {
-  id: {
-    from: 'DARI', to: 'KEPADA',
-    issued: 'DITERBITKAN', due: 'JATUH TEMPO',
-    desc: 'DESKRIPSI', qty: 'JMLH', price: 'HARGA', total: 'TOTAL',
-    subtotal: 'Subtotal', discount: 'Diskon', tax: 'Pajak',
-    grandTotal: 'Total', notes: 'Catatan', payment: 'Pembayaran',
-    invoice: 'Invois',
-  },
-  en: {
-    from: 'FROM', to: 'TO',
-    issued: 'ISSUED', due: 'DUE DATE',
-    desc: 'DESCRIPTION', qty: 'QTY', price: 'PRICE', total: 'TOTAL',
-    subtotal: 'Subtotal', discount: 'Discount', tax: 'Tax',
-    grandTotal: 'Total', notes: 'Notes', payment: 'Payment',
-    invoice: 'Invoice',
+  // ─── i18n labels ───────────────────────────────────────────────────────────
+  const LABELS = {
+    id: {
+      from: "DARI",
+      to: "KEPADA",
+      issued: "DITERBITKAN",
+      due: "JATUH TEMPO",
+      desc: "DESKRIPSI",
+      qty: "JMLH",
+      price: "HARGA",
+      total: "TOTAL",
+      subtotal: "Subtotal",
+      discount: "Diskon",
+      tax: "Pajak",
+      grandTotal: "Total",
+      notes: "Catatan",
+      payment: "Pembayaran",
+      invoice: "Invois",
+    },
+    en: {
+      from: "FROM",
+      to: "TO",
+      issued: "ISSUED",
+      due: "DUE DATE",
+      desc: "DESCRIPTION",
+      qty: "QTY",
+      price: "PRICE",
+      total: "TOTAL",
+      subtotal: "Subtotal",
+      discount: "Discount",
+      tax: "Tax",
+      grandTotal: "Total",
+      notes: "Notes",
+      payment: "Payment",
+      invoice: "Invoice",
+    },
+  };
+
+  // ─── Exchange rate (static, IDR base) ──────────────────────────────────────
+  const RATES = { IDR: 1, USD: 16300 }; // 1 USD = 16300 IDR
+
+  // ─── State ─────────────────────────────────────────────────────────────────
+  let items = [{ desc: "", qty: 1, price: 0 }];
+
+  // ─── DOM refs ──────────────────────────────────────────────────────────────
+  const form = document.getElementById("invoice-form");
+  const preview = document.getElementById("invoice-preview");
+  const btnDownload = document.getElementById("btn-download");
+  const btnReset = document.getElementById("btn-reset");
+  const btnAddItem = document.getElementById("btn-add-item");
+  const itemsContainer = document.getElementById("items-container");
+
+  // Required field IDs
+  const REQUIRED_IDS = [
+    "f-invoice-no",
+    "f-from-name",
+    "f-from-address",
+    "f-to-name",
+    "f-to-address",
+    "f-bank",
+    "f-account-name",
+    "f-account-no",
+    "f-issue-date",
+    "f-due-date",
+  ];
+
+  // ─── Helpers ───────────────────────────────────────────────────────────────
+  function val(id) {
+    return document.getElementById(id)?.value.trim() || "";
   }
-};
 
-// ─── Exchange rate (static, IDR base) ──────────────────────────────────────
-const RATES = { IDR: 1, USD: 16300 }; // 1 USD = 16300 IDR
-
-// ─── State ─────────────────────────────────────────────────────────────────
-let items = [{ desc: '', qty: 1, price: 0 }];
-
-// ─── DOM refs ──────────────────────────────────────────────────────────────
-const form = document.getElementById('invoice-form');
-const preview = document.getElementById('invoice-preview');
-const btnDownload = document.getElementById('btn-download');
-const btnReset = document.getElementById('btn-reset');
-const btnAddItem = document.getElementById('btn-add-item');
-const itemsContainer = document.getElementById('items-container');
-
-// Required field IDs
-const REQUIRED_IDS = [
-  'f-invoice-no','f-from-name','f-from-address',
-  'f-to-name','f-to-address','f-bank',
-  'f-account-name','f-account-no',
-  'f-issue-date','f-due-date'
-];
-
-// ─── Helpers ───────────────────────────────────────────────────────────────
-function val(id) { return document.getElementById(id)?.value.trim() || ''; }
-
-function formatCurrency(amount, currency) {
-  if (currency === 'USD') {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount / RATES.USD);
+  function formatCurrency(amount, currency) {
+    if (currency === "USD") {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount / RATES.USD);
+    }
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0,
+    }).format(amount);
   }
-  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(amount);
-}
 
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-}
+  function formatDate(dateStr) {
+    if (!dateStr) return "";
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
 
-// ─── Render item rows ───────────────────────────────────────────────────────
-function renderItems() {
-  itemsContainer.innerHTML = items.map((item, i) => `
+  // ─── Render item rows ───────────────────────────────────────────────────────
+  function renderItems() {
+    itemsContainer.innerHTML = items
+      .map(
+        (item, i) => `
     <div class="grid grid-cols-12 gap-2 items-start" data-index="${i}">
       <div class="col-span-12 sm:col-span-5">
-        ${i === 0 ? '<label class="label">Deskripsi <span class="text-red-500">*</span></label>' : ''}
+        ${i === 0 ? '<label class="label">Deskripsi <span class="text-red-500">*</span></label>' : ""}
         <input type="text" class="input item-desc" placeholder="Nama barang/jasa" value="${item.desc}" required />
         <p class="err-msg hidden">Deskripsi wajib diisi.</p>
       </div>
       <div class="col-span-4 sm:col-span-2">
-        ${i === 0 ? '<label class="label">Jumlah <span class="text-red-500">*</span></label>' : ''}
+        ${i === 0 ? '<label class="label">Jumlah <span class="text-red-500">*</span></label>' : ""}
         <input type="number" class="input item-qty" placeholder="1" value="${item.qty}" min="1" required />
       </div>
       <div class="col-span-6 sm:col-span-4">
-        ${i === 0 ? '<label class="label">Harga Satuan <span class="text-red-500">*</span></label>' : ''}
+        ${i === 0 ? '<label class="label">Harga Satuan <span class="text-red-500">*</span></label>' : ""}
         <input type="number" class="input item-price" placeholder="0" value="${item.price}" min="0" required />
       </div>
       <div class="col-span-2 sm:col-span-1 flex items-end pb-0.5">
-        ${i === 0 ? '<div class="label opacity-0">x</div>' : ''}
-        ${items.length > 1 ? `<button type="button" class="btn-remove-item text-secondary hover:text-red-500 transition-colors text-lg leading-none mt-1" data-index="${i}">×</button>` : ''}
+        ${i === 0 ? '<div class="label opacity-0">x</div>' : ""}
+        ${items.length > 1 ? `<button type="button" class="btn-remove-item text-secondary hover:text-red-500 transition-colors text-lg leading-none mt-1" data-index="${i}">×</button>` : ""}
       </div>
     </div>
-  `).join('');
+  `
+      )
+      .join("");
 
-  // bind events
-  itemsContainer.querySelectorAll('.item-desc').forEach((el, i) => {
-    el.addEventListener('input', e => { items[i].desc = e.target.value; updatePreview(); validateItems(); });
-    el.addEventListener('blur', () => validateItems());
-  });
-  itemsContainer.querySelectorAll('.item-qty').forEach((el, i) => {
-    el.addEventListener('input', e => { items[i].qty = parseFloat(e.target.value) || 0; updatePreview(); });
-  });
-  itemsContainer.querySelectorAll('.item-price').forEach((el, i) => {
-    el.addEventListener('input', e => { items[i].price = parseFloat(e.target.value) || 0; updatePreview(); });
-  });
-  itemsContainer.querySelectorAll('.btn-remove-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      items.splice(parseInt(btn.dataset.index), 1);
-      renderItems();
-      updatePreview();
-      checkDownloadBtn();
+    // bind events
+    itemsContainer.querySelectorAll(".item-desc").forEach((el, i) => {
+      el.addEventListener("input", (e) => {
+        items[i].desc = e.target.value;
+        updatePreview();
+        validateItems();
+      });
+      el.addEventListener("blur", () => validateItems());
     });
-  });
-}
+    itemsContainer.querySelectorAll(".item-qty").forEach((el, i) => {
+      el.addEventListener("input", (e) => {
+        items[i].qty = parseFloat(e.target.value) || 0;
+        updatePreview();
+      });
+    });
+    itemsContainer.querySelectorAll(".item-price").forEach((el, i) => {
+      el.addEventListener("input", (e) => {
+        items[i].price = parseFloat(e.target.value) || 0;
+        updatePreview();
+      });
+    });
+    itemsContainer.querySelectorAll(".btn-remove-item").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        items.splice(parseInt(btn.dataset.index), 1);
+        renderItems();
+        updatePreview();
+        checkDownloadBtn();
+      });
+    });
+  }
 
-// ─── Validate ───────────────────────────────────────────────────────────────
-function validateField(id) {
-  const el = document.getElementById(id);
-  if (!el) return true;
-  const empty = !el.value.trim();
-  el.classList.toggle('border-red-400', empty);
-  const msg = el.nextElementSibling;
-  if (msg?.classList.contains('err-msg')) msg.classList.toggle('hidden', !empty);
-  return !empty;
-}
-
-function validateItems() {
-  let valid = true;
-  itemsContainer.querySelectorAll('.item-desc').forEach((el, i) => {
+  // ─── Validate ───────────────────────────────────────────────────────────────
+  function validateField(id) {
+    const el = document.getElementById(id);
+    if (!el) return true;
     const empty = !el.value.trim();
-    el.classList.toggle('border-red-400', empty);
+    el.classList.toggle("border-red-400", empty);
     const msg = el.nextElementSibling;
-    if (msg?.classList.contains('err-msg')) msg.classList.toggle('hidden', !empty);
-    if (empty) valid = false;
-  });
-  return valid;
-}
+    if (msg?.classList.contains("err-msg"))
+      msg.classList.toggle("hidden", !empty);
+    return !empty;
+  }
 
-function isFormValid() {
-  const fieldsValid = REQUIRED_IDS.every(id => document.getElementById(id)?.value.trim());
-  const itemsValid = items.every(it => it.desc.trim());
-  return fieldsValid && itemsValid;
-}
+  function validateItems() {
+    let valid = true;
+    itemsContainer.querySelectorAll(".item-desc").forEach((el, i) => {
+      const empty = !el.value.trim();
+      el.classList.toggle("border-red-400", empty);
+      const msg = el.nextElementSibling;
+      if (msg?.classList.contains("err-msg"))
+        msg.classList.toggle("hidden", !empty);
+      if (empty) valid = false;
+    });
+    return valid;
+  }
 
-function checkDownloadBtn() {
-  btnDownload.disabled = !isFormValid();
-}
+  function isFormValid() {
+    const fieldsValid = REQUIRED_IDS.every((id) =>
+      document.getElementById(id)?.value.trim()
+    );
+    const itemsValid = items.every((it) => it.desc.trim());
+    return fieldsValid && itemsValid;
+  }
 
-// ─── Update Preview ─────────────────────────────────────────────────────────
-function updatePreview() {
-  const lang = val('f-lang') || 'id';
-  const currency = val('f-currency') || 'IDR';
-  const L = LABELS[lang];
+  function checkDownloadBtn() {
+    btnDownload.disabled = !isFormValid();
+  }
 
-  const fromName = val('f-from-name') || '—';
-  const fromAddress = val('f-from-address') || '—';
-  const toName = val('f-to-name') || '—';
-  const toAddress = val('f-to-address') || '—';
-  const invoiceNo = val('f-invoice-no') || '—';
-  const issueDate = formatDate(val('f-issue-date'));
-  const dueDate = formatDate(val('f-due-date'));
-  const bank = val('f-bank') || '—';
-  const accountName = val('f-account-name') || '—';
-  const accountNo = val('f-account-no') || '—';
-  const notes = val('f-notes');
-  const discountRaw = parseFloat(document.getElementById('f-discount')?.value) || 0;
-  const taxPct = parseFloat(document.getElementById('f-tax')?.value) || 0;
+  // ─── Update Preview ─────────────────────────────────────────────────────────
+  function updatePreview() {
+    const lang = val("f-lang") || "id";
+    const currency = val("f-currency") || "IDR";
+    const L = LABELS[lang];
 
-  const subtotal = items.reduce((s, it) => s + (it.qty * it.price), 0);
-  const discountAmt = discountRaw;
-  const taxAmt = (subtotal - discountAmt) * (taxPct / 100);
-  const grandTotal = subtotal - discountAmt + taxAmt;
+    const fromName = val("f-from-name") || "—";
+    const fromAddress = val("f-from-address") || "—";
+    const toName = val("f-to-name") || "—";
+    const toAddress = val("f-to-address") || "—";
+    const invoiceNo = val("f-invoice-no") || "—";
+    const issueDate = formatDate(val("f-issue-date"));
+    const dueDate = formatDate(val("f-due-date"));
+    const bank = val("f-bank") || "—";
+    const accountName = val("f-account-name") || "—";
+    const accountNo = val("f-account-no") || "—";
+    const notes = val("f-notes");
+    const discountRaw =
+      parseFloat(document.getElementById("f-discount")?.value) || 0;
+    const taxPct = parseFloat(document.getElementById("f-tax")?.value) || 0;
 
-  const itemRows = items.map(it => `
+    const subtotal = items.reduce((s, it) => s + it.qty * it.price, 0);
+    const discountAmt = discountRaw;
+    const taxAmt = (subtotal - discountAmt) * (taxPct / 100);
+    const grandTotal = subtotal - discountAmt + taxAmt;
+
+    const itemRows = items
+      .map(
+        (it) => `
     <tr>
-      <td class="py-2 pr-4 text-sm">${it.desc || '—'}</td>
+      <td class="py-2 pr-4 text-sm">${it.desc || "—"}</td>
       <td class="py-2 pr-4 text-sm text-center">${it.qty}</td>
       <td class="py-2 pr-4 text-sm text-right">${formatCurrency(it.price, currency)}</td>
       <td class="py-2 text-sm text-right">${formatCurrency(it.qty * it.price, currency)}</td>
     </tr>
-  `).join('');
+  `
+      )
+      .join("");
 
-  preview.innerHTML = `
+    preview.innerHTML = `
     <div class="text-sm text-secondary mb-1">${fromName}</div>
     <h2 class="font-heading font-bold text-[1.618rem] text-primary mb-1">${L.invoice}</h2>
     <div class="text-sm text-secondary mb-4">${invoiceNo}</div>
@@ -346,11 +545,11 @@ function updatePreview() {
     <div class="grid grid-cols-2 gap-4 mb-6">
       <div>
         <div class="text-[0.618rem] font-semibold tracking-widest text-secondary mb-1">${L.issued}</div>
-        <div class="text-sm text-primary">${issueDate || '—'}</div>
+        <div class="text-sm text-primary">${issueDate || "—"}</div>
       </div>
       <div>
         <div class="text-[0.618rem] font-semibold tracking-widest text-secondary mb-1">${L.due}</div>
-        <div class="text-sm text-primary">${dueDate || '—'}</div>
+        <div class="text-sm text-primary">${dueDate || "—"}</div>
       </div>
     </div>
 
@@ -371,14 +570,22 @@ function updatePreview() {
         <span class="text-secondary">${L.subtotal}</span>
         <span class="text-primary">${formatCurrency(subtotal, currency)}</span>
       </div>
-      ${discountAmt > 0 ? `<div class="flex justify-between w-48">
+      ${
+        discountAmt > 0
+          ? `<div class="flex justify-between w-48">
         <span class="text-secondary">${L.discount}</span>
         <span class="text-primary">- ${formatCurrency(discountAmt, currency)}</span>
-      </div>` : ''}
-      ${taxPct > 0 ? `<div class="flex justify-between w-48">
+      </div>`
+          : ""
+      }
+      ${
+        taxPct > 0
+          ? `<div class="flex justify-between w-48">
         <span class="text-secondary">${L.tax} (${taxPct}%)</span>
         <span class="text-primary">${formatCurrency(taxAmt, currency)}</span>
-      </div>` : ''}
+      </div>`
+          : ""
+      }
       <hr class="w-48 border-primary my-1" />
       <div class="flex justify-between w-48 font-semibold">
         <span class="text-primary">${L.grandTotal}</span>
@@ -386,10 +593,14 @@ function updatePreview() {
       </div>
     </div>
 
-    ${notes ? `<div class="mb-6">
+    ${
+      notes
+        ? `<div class="mb-6">
       <div class="text-[0.618rem] font-semibold tracking-widest text-secondary mb-1">${L.notes}</div>
       <p class="text-sm text-secondary">${notes}</p>
-    </div>` : ''}
+    </div>`
+        : ""
+    }
 
     <div>
       <div class="text-[0.618rem] font-semibold tracking-widest text-secondary mb-1">${L.payment}</div>
@@ -397,73 +608,91 @@ function updatePreview() {
     </div>
   `;
 
-  checkDownloadBtn();
-}
+    checkDownloadBtn();
+  }
 
-// ─── Event listeners ────────────────────────────────────────────────────────
-REQUIRED_IDS.forEach(id => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.addEventListener('blur', () => { validateField(id); checkDownloadBtn(); });
-  el.addEventListener('input', () => { validateField(id); updatePreview(); });
-});
-
-document.getElementById('f-lang').addEventListener('change', updatePreview);
-document.getElementById('f-currency').addEventListener('change', updatePreview);
-document.getElementById('f-discount').addEventListener('input', updatePreview);
-document.getElementById('f-tax').addEventListener('input', updatePreview);
-document.getElementById('f-notes').addEventListener('input', updatePreview);
-
-btnAddItem.addEventListener('click', () => {
-  items.push({ desc: '', qty: 1, price: 0 });
-  renderItems();
-  updatePreview();
-});
-
-btnReset.addEventListener('click', () => {
-  form.reset();
-  items = [{ desc: '', qty: 1, price: 0 }];
-  renderItems();
-  updatePreview();
-  REQUIRED_IDS.forEach(id => {
+  // ─── Event listeners ────────────────────────────────────────────────────────
+  REQUIRED_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.classList.remove('border-red-400');
-    const msg = el.nextElementSibling;
-    if (msg?.classList.contains('err-msg')) msg.classList.add('hidden');
+    el.addEventListener("blur", () => {
+      validateField(id);
+      checkDownloadBtn();
+    });
+    el.addEventListener("input", () => {
+      validateField(id);
+      updatePreview();
+    });
   });
-});
 
-// ─── Download PDF ────────────────────────────────────────────────────────────
-btnDownload.addEventListener('click', async () => {
-  const { jsPDF } = window.jspdf;
-  btnDownload.textContent = 'Memproses...';
-  btnDownload.disabled = true;
+  document.getElementById("f-lang").addEventListener("change", updatePreview);
+  document
+    .getElementById("f-currency")
+    .addEventListener("change", updatePreview);
+  document
+    .getElementById("f-discount")
+    .addEventListener("input", updatePreview);
+  document.getElementById("f-tax").addEventListener("input", updatePreview);
+  document.getElementById("f-notes").addEventListener("input", updatePreview);
 
-  try {
-    const canvas = await html2canvas(preview, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-    const pageW = pdf.internal.pageSize.getWidth();
-    const pageH = pdf.internal.pageSize.getHeight();
-    const imgH = (canvas.height * pageW) / canvas.width;
-    let y = 0;
-    while (y < imgH) {
-      if (y > 0) pdf.addPage();
-      pdf.addImage(imgData, 'PNG', 0, -y, pageW, imgH);
-      y += pageH;
+  btnAddItem.addEventListener("click", () => {
+    items.push({ desc: "", qty: 1, price: 0 });
+    renderItems();
+    updatePreview();
+  });
+
+  btnReset.addEventListener("click", () => {
+    form.reset();
+    items = [{ desc: "", qty: 1, price: 0 }];
+    renderItems();
+    updatePreview();
+    REQUIRED_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove("border-red-400");
+      const msg = el.nextElementSibling;
+      if (msg?.classList.contains("err-msg")) msg.classList.add("hidden");
+    });
+  });
+
+  // ─── Download PDF ────────────────────────────────────────────────────────────
+  btnDownload.addEventListener("click", async () => {
+    const { jsPDF } = window.jspdf;
+    btnDownload.textContent = "Memproses...";
+    btnDownload.disabled = true;
+
+    try {
+      const canvas = await html2canvas(preview, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+      });
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const imgH = (canvas.height * pageW) / canvas.width;
+      let y = 0;
+      while (y < imgH) {
+        if (y > 0) pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, -y, pageW, imgH);
+        y += pageH;
+      }
+      const invoiceNo = val("f-invoice-no") || "invois";
+      pdf.save(`${invoiceNo}.pdf`);
+    } finally {
+      btnDownload.textContent = "Download Invois";
+      btnDownload.disabled = !isFormValid();
     }
-    const invoiceNo = val('f-invoice-no') || 'invois';
-    pdf.save(`${invoiceNo}.pdf`);
-  } finally {
-    btnDownload.textContent = 'Download Invois';
-    btnDownload.disabled = !isFormValid();
-  }
-});
+  });
 
-// ─── Init ────────────────────────────────────────────────────────────────────
-renderItems();
-updatePreview();
+  // ─── Init ────────────────────────────────────────────────────────────────────
+  renderItems();
+  updatePreview();
 </script>
 
 <style>
@@ -477,7 +706,8 @@ updatePreview();
   }
   .input {
     width: 100%;
-    border: 1px solid color-mix(in srgb, var(--color-secondary) 40%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--color-secondary) 40%, transparent);
     background-color: var(--color-bg);
     padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
