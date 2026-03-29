@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout title="Halaman Tidak Ditemukan">
+  <Navbar variant="landing" />
+  <main class="max-w-6xl mx-auto px-6 py-24 text-center">
+    <h1 class="font-heading font-bold text-[4.236rem] text-primary leading-none mb-4">404</h1>
+    <p class="text-secondary text-lg mb-8">Halaman yang kamu cari tidak ditemukan.</p>
+    <a href="/" class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity cursor-pointer rounded-sm">
+      Kembali ke Beranda
+    </a>
+  </main>
+</Layout>
