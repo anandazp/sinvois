@@ -11,14 +11,27 @@ const { variant = "landing" } = Astro.props;
     {
       variant === "landing" ? (
         <>
-          <div class="hidden md:flex items-center gap-8">
-            <div class="flex items-center gap-8 text-secondary text-base">
-              <a href="#fitur" class="hover:text-primary transition-colors">Fitur</a>
-              <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
-            </div>
-            <a href="/create" class="nav-cta">Buat Invois</a>
+          <div class="hidden md:flex items-center gap-8 text-secondary text-base">
+            <a href="/" class="hover:text-primary transition-colors">
+              Beranda
+            </a>
+            <a href="#fitur" class="hover:text-primary transition-colors">
+              Fitur
+            </a>
+            <a href="#faq" class="hover:text-primary transition-colors">
+              FAQ
+            </a>
           </div>
-          <button id="nav-toggle" class="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer" aria-label="Toggle menu">
+          <div class="hidden md:flex items-center gap-8">
+            <a href="/create" class="nav-cta">
+              Buat Invois
+            </a>
+          </div>
+          <button
+            id="nav-toggle"
+            class="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+            aria-label="Toggle menu"
+          >
             <span class="hamburger-line" />
             <span class="hamburger-line" />
             <span class="hamburger-line" />
@@ -26,7 +39,9 @@ const { variant = "landing" } = Astro.props;
         </>
       ) : (
         <div class="flex items-center gap-6 text-secondary text-base">
-          <a href="/" class="hover:text-primary transition-colors">Beranda</a>
+          <a href="/" class="hover:text-primary transition-colors">
+            Beranda
+          </a>
         </div>
       )
     }
@@ -35,10 +50,31 @@ const { variant = "landing" } = Astro.props;
   {
     variant === "landing" && (
       <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="max-w-6xl mx-auto flex flex-col gap-4 px-6 py-4">
-          <a href="#fitur" class="text-secondary hover:text-primary transition-colors" id="mobile-fitur">Fitur</a>
-          <a href="#faq" class="text-secondary hover:text-primary transition-colors" id="mobile-faq">FAQ</a>
-          <a href="/create" class="nav-cta self-start">Buat Invois</a>
+        <div class="max-w-6xl mx-auto flex flex-col gap-4 py-4">
+          <a
+            href="/"
+            class="text-secondary hover:text-primary transition-colors"
+            id="mobile-beranda"
+          >
+            Beranda
+          </a>
+          <a
+            href="#fitur"
+            class="text-secondary hover:text-primary transition-colors"
+            id="mobile-fitur"
+          >
+            Fitur
+          </a>
+          <a
+            href="#faq"
+            class="text-secondary hover:text-primary transition-colors"
+            id="mobile-faq"
+          >
+            FAQ
+          </a>
+          <a href="/create" class="nav-cta self-start">
+            Buat Invois
+          </a>
         </div>
       </div>
     )
@@ -66,7 +102,9 @@ const { variant = "landing" } = Astro.props;
     font-size: 0.875rem;
     font-family: var(--font-heading);
     font-weight: 600;
-    transition: background-color 0.15s, color 0.15s;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
     cursor: pointer;
     border-radius: 2px;
   }
@@ -80,16 +118,16 @@ const { variant = "landing" } = Astro.props;
     height: 2px;
     background-color: var(--color-primary);
     border-radius: 2px;
-    transition: transform 0.2s, opacity 0.2s;
+    transition:
+      transform 0.2s,
+      opacity 0.2s;
   }
   .mobile-menu {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    border-top: 1px solid transparent;
   }
   .mobile-menu.open {
     max-height: 300px;
-    border-top-color: color-mix(in srgb, var(--color-secondary) 20%, transparent);
   }
 </style>
