@@ -692,7 +692,7 @@ import Navbar from "../components/Navbar.astro";
       });
 
       const canvas = await html2canvas(el, {
-        scale: 2,
+        scale: 1.5,
         useCORS: true,
         backgroundColor: "#ffffff",
         width: A4_W,
@@ -700,12 +700,12 @@ import Navbar from "../components/Navbar.astro";
       });
       document.body.removeChild(el);
 
-      const imgData = canvas.toDataURL("image/png");
+      const imgData = canvas.toDataURL("image/jpeg", 0.92);
       const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
       const pageW = pdf.internal.pageSize.getWidth();
       const pageH = pdf.internal.pageSize.getHeight();
       // Fit entire content to 1 page
-      pdf.addImage(imgData, "PNG", 0, 0, pageW, pageH);
+      pdf.addImage(imgData, "JPEG", 0, 0, pageW, pageH);
       const invoiceNo = val("f-invoice-no") || "invois";
       pdf.save(`${invoiceNo}.pdf`);
     } finally {
