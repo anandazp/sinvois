@@ -1,25 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CtaButton from "../components/CtaButton.astro";
 ---
+
 <Layout title="Cara Simpel Buat Invois">
   <Navbar variant="landing" />
 
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
-    <h1 class="font-heading font-bold text-[2.618rem] md:text-[4.236rem] leading-tight text-primary mb-8">
+    <h1
+      class="font-heading font-bold text-[2.618rem] md:text-[4.236rem] leading-tight text-primary mb-8"
+    >
       Cara Simpel Buat Invois<br />1 Menit Langsung Jadi
     </h1>
-    <a href="/create" class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity">
-      Buat Invois
-    </a>
+    <CtaButton />
   </section>
 
   <!-- Fitur untuk siapa -->
-  <section id="fitur" class="max-w-6xl mx-auto px-6 py-16">
+  <section class="max-w-6xl mx-auto px-6 py-16">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6">
+        <h2
+          class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
+        >
           Dibuat untuk segala keperluanmu
         </h2>
         <ul class="space-y-3 text-secondary">
@@ -49,21 +53,36 @@ import Navbar from '../components/Navbar.astro';
 
   <!-- Kenapa Simpel Invois -->
   <section class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10">
+    <h2
+      class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
+    >
       Kenapa harus pake Simpel Invois?
     </h2>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Gratis</h3>
-        <p class="text-secondary text-base">Kamu nggak perlu keluar uang sama sekali.</p>
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
+          Gratis
+        </h3>
+        <p class="text-secondary text-base">
+          Kamu nggak perlu keluar uang sama sekali.
+        </p>
       </div>
       <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Simpel</h3>
-        <p class="text-secondary text-base">Cukup isi form bentar, invois langsung jadi.</p>
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
+          Simpel
+        </h3>
+        <p class="text-secondary text-base">
+          Cukup isi form bentar, invois langsung jadi.
+        </p>
       </div>
       <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">Aman</h3>
-        <p class="text-secondary text-base">Semua data diproses langsung di dalam browser tanpa disimpan ke dalam server.</p>
+        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
+          Aman
+        </h3>
+        <p class="text-secondary text-base">
+          Semua data diproses langsung di dalam browser tanpa disimpan ke dalam
+          server.
+        </p>
       </div>
     </div>
   </section>
@@ -82,36 +101,56 @@ import Navbar from '../components/Navbar.astro';
         />
       </div>
       <div class="order-1 md:order-2">
-        <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6">
+        <h2
+          class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
+        >
           Jangan sampe bisnismu terganggu urusan sepele
         </h2>
-        <a href="/create" class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity">
-          Buat Invois
-        </a>
+        <CtaButton />
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10">FAQ</h2>
+    <h2
+      class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
+    >
+      FAQ
+    </h2>
     <div class="space-y-6 max-w-2xl">
       <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">Apakah data saya disimpan?</h3>
-        <p class="text-secondary text-base">Tidak. Semua data hanya ada di browser kamu dan langsung hilang saat halaman ditutup.</p>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">
+          Apakah data saya disimpan?
+        </h3>
+        <p class="text-secondary text-base">
+          Tidak. Semua data hanya ada di browser kamu dan langsung hilang saat
+          halaman ditutup.
+        </p>
       </div>
       <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">Format apa yang bisa didownload?</h3>
-        <p class="text-secondary text-base">Invois bisa didownload dalam format PDF.</p>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">
+          Format apa yang bisa didownload?
+        </h3>
+        <p class="text-secondary text-base">
+          Invois bisa didownload dalam format PDF.
+        </p>
       </div>
       <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">Apakah bisa dipakai di HP?</h3>
-        <p class="text-secondary text-base">Bisa. Simpel Invois didesain mobile-first dan responsif di semua ukuran layar.</p>
+        <h3 class="font-heading font-semibold text-base text-primary mb-1">
+          Apakah bisa dipakai di HP?
+        </h3>
+        <p class="text-secondary text-base">
+          Bisa. Simpel Invois didesain mobile-first dan responsif di semua
+          ukuran layar.
+        </p>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-secondary/20 py-8 text-center text-secondary text-sm">
+  <footer
+    class="border-t border-secondary/20 py-8 text-center text-secondary text-sm"
+  >
     © {new Date().getFullYear()} Simpel Invois. Gratis selamanya.
   </footer>
 </Layout>

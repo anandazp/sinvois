@@ -1,0 +1,10 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+const { href = "/create", label = "Buat Invois" } = Astro.props;
+---
+<a href={href} class="inline-block bg-primary text-bg font-heading font-semibold px-8 py-3 hover:opacity-90 transition-opacity cursor-pointer rounded-sm">
+  {label}
+</a>
