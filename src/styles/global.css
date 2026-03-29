@@ -16,6 +16,49 @@ body {
   font-family: var(--font-body);
 }
 
+button, a[href] {
+  cursor: pointer;
+}
+
+button, input, select, textarea {
+  border-radius: 2px;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 40%, transparent);
+  background-color: var(--color-bg);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  transition: border-color 0.15s;
+  outline: none;
+  border-radius: 2px;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.input.border-red-400 {
+  border-color: #f87171;
+}
+
+.err-msg {
+  color: #ef4444;
+  margin-top: 0.25rem;
+  font-size: 0.618rem;
+}
+
 h1,
 h2,
 h3,
