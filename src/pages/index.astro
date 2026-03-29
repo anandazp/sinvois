@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import CtaButton from "../components/CtaButton.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Cara Simpel Buat Invois">
@@ -39,12 +40,12 @@ import CtaButton from "../components/CtaButton.astro";
         </ul>
       </div>
       <div class="flex justify-center">
-        <img
+        <Image
           src="https://illustrations.popsy.co/amber/work-from-home.svg"
           alt="Ilustrasi membuat invoice"
           class="w-full max-w-sm"
-          width="400"
-          height="400"
+          width={400}
+          height={400}
           loading="lazy"
         />
       </div>
@@ -91,12 +92,12 @@ import CtaButton from "../components/CtaButton.astro";
   <section class="max-w-6xl mx-auto px-6 py-16">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="flex justify-center order-2 md:order-1">
-        <img
+        <Image
           src="https://illustrations.popsy.co/amber/freelancer.svg"
           alt="Ilustrasi freelancer"
           class="w-full max-w-sm"
-          width="400"
-          height="400"
+          width={400}
+          height={400}
           loading="lazy"
         />
       </div>
