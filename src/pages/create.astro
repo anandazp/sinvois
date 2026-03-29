@@ -657,6 +657,10 @@ import Navbar from "../components/Navbar.astro";
 
   // ─── Download PDF ────────────────────────────────────────────────────────────
   btnDownload.addEventListener("click", async () => {
+    if (typeof html2canvas === "undefined" || typeof window.jspdf === "undefined") {
+      alert("Library PDF belum siap, coba lagi sebentar.");
+      return;
+    }
     const { jsPDF } = window.jspdf;
     btnDownload.textContent = "Memproses...";
     btnDownload.disabled = true;
@@ -666,6 +670,51 @@ import Navbar from "../components/Navbar.astro";
         scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff",
+        onclone: (doc) => {
+          // Remove all stylesheets (Tailwind uses oklch which html2canvas can't parse)
+          doc.querySelectorAll('link[rel="stylesheet"], style').forEach((el) => el.remove());
+          // Inject minimal styles needed for the preview
+          const style = doc.createElement("style");
+          style.textContent = `
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { font-family: 'PT Sans', sans-serif; background: #f3f3f4; color: #14110f; font-size: 14px; }
+            .font-heading, h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+            .font-bold { font-weight: 700; }
+            .font-semibold { font-weight: 600; }
+            .text-primary { color: #14110f; }
+            .text-secondary { color: #353e4d; }
+            .text-sm { font-size: 0.875rem; }
+            .text-\\[0\\.618rem\\] { font-size: 0.618rem; }
+            .text-\\[1\\.618rem\\] { font-size: 1.618rem; }
+            .tracking-widest { letter-spacing: 0.1em; }
+            .mb-1 { margin-bottom: 0.25rem; }
+            .mb-4 { margin-bottom: 1rem; }
+            .mb-6 { margin-bottom: 1.5rem; }
+            .my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+            .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+            .pr-4 { padding-right: 1rem; }
+            .grid { display: grid; }
+            .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .gap-4 { gap: 1rem; }
+            .gap-1 { gap: 0.25rem; }
+            .flex { display: flex; }
+            .flex-col { flex-direction: column; }
+            .items-end { align-items: flex-end; }
+            .justify-between { justify-content: space-between; }
+            .w-48 { width: 12rem; }
+            .w-full { width: 100%; }
+            table { width: 100%; border-collapse: collapse; }
+            .text-left { text-align: left; }
+            .text-center { text-align: center; }
+            .text-right { text-align: right; }
+            .border-b { border-bottom: 1px solid #14110f; }
+            .border-primary { border-color: #14110f; }
+            hr { border: none; border-top: 1px solid #14110f; }
+            .divide-y > * + * { border-top: 1px solid rgba(53,62,77,0.2); }
+            .pb-2 { padding-bottom: 0.5rem; }
+          `;
+          doc.head.appendChild(style);
+        },
       });
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF({
@@ -695,35 +744,4 @@ import Navbar from "../components/Navbar.astro";
   updatePreview();
 </script>
 
-<style>
-  .label {
-    display: block;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
-  }
-  .input {
-    width: 100%;
-    border: 1px solid
-      color-mix(in srgb, var(--color-secondary) 40%, transparent);
-    background-color: var(--color-bg);
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    color: var(--color-primary);
-    transition: border-color 0.15s;
-    outline: none;
-  }
-  .input:focus {
-    border-color: var(--color-primary);
-  }
-  .input.border-red-400 {
-    border-color: #f87171;
-  }
-  .err-msg {
-    color: #ef4444;
-    margin-top: 0.25rem;
-    font-size: 0.618rem;
-  }
-</style>
+
