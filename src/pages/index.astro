@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import CtaButton from "../components/CtaButton.astro";
 import { Image } from "astro:assets";
+import AffiliateProgram from "../images/affiliate-program.svg";
+import FastInternet from "../images/fast-internet.svg";
 ---
 
 <Layout title="Cara Simpel Buat Invois">
@@ -41,7 +43,7 @@ import { Image } from "astro:assets";
       </div>
       <div class="flex justify-center">
         <Image
-          src="https://illustrations.popsy.co/amber/work-from-home.svg"
+          src={AffiliateProgram}
           alt="Ilustrasi membuat invoice"
           class="w-full max-w-sm"
           width={400}
@@ -93,8 +95,10 @@ import { Image } from "astro:assets";
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="flex justify-center order-2 md:order-1">
         <Image
-          src="https://illustrations.popsy.co/amber/freelancer.svg"
-          alt="Ilustrasi freelancer"
+          src={FastInternet}
+          alt="
+          Ilustrasi
+          freelancer"
           class="w-full max-w-sm"
           width={400}
           height={400}
