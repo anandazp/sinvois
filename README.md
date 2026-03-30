@@ -1,6 +1,6 @@
-# Simpel Invois
+# Sinvois
 
-Aplikasi web untuk membuat invoice dengan cara yang simpel. Isi form, preview langsung jadi, download PDF.
+A website for creating invoices easily. Fill out the form, preview the finished product, and download the PDF.
 
 ## Tech Stack
 
@@ -8,34 +8,29 @@ Aplikasi web untuk membuat invoice dengan cara yang simpel. Isi form, preview la
 - [Tailwind CSS 4.2](https://tailwindcss.com) — styling
 - [html2canvas](https://html2canvas.hertzen.com) + [jsPDF](https://github.com/parallax/jsPDF) — PDF export (via CDN)
 
-## Fitur
+## Features
 
-- Form invoice dengan validasi realtime
-- Preview invoice realtime di samping form
-- Dukungan 2 bahasa: Indonesia & Inggris (label preview otomatis berubah)
-- Dukungan 2 mata uang: IDR & USD (dengan konversi kurs)
-- Tambah/hapus item dinamis
-- Diskon, pajak/PPN, dan catatan (opsional)
-- Download hasil invoice sebagai PDF
-- Desain mobile-first, responsif di semua device
+- Invoice form with real-time validation
+- Real-time invoice preview next to the form
+- Support for 2 languages: Indonesian & English (preview label automatically changes)
+- Support for 2 currencies: IDR & USD (with exchange rate conversion)
+- Dynamic addition/removal of items
+- Discounts, taxes/VAT, and notes (optional)
+- Download invoice as a PDF
+- Mobile-first design, responsive across all devices
 
-## Halaman
+## Pages
 
-| Route | Deskripsi |
-|-------|-----------|
-| `/` | Landing page |
-| `/create` | Halaman pembuatan invoice |
+| Route     | Description         |
+| --------- | ------------------- |
+| `/`       | Landing page        |
+| `/create` | Create Invoice Page |
 
-## Menjalankan Project
+## Setup Project
 
 ```sh
 npm install       # install dependencies
-npm run dev       # dev server di localhost:4321
-npm run build     # build production ke ./dist/
+npm run dev       # running development server in localhost:4321
+npm run build     # build production to ./dist/
 npm run preview   # preview build
 ```
-
-## Desain
-
-- **Font**: Plus Jakarta Sans (heading), PT Sans (body)
-- **Warna**: `#14110F` (primer), `#B3B4B3` (sekunder), `#f3f3f4` (background)
