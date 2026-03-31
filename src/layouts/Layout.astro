@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ogImage from "../images/og-image-sinvois.png";
 interface Props {
   title: string;
   description?: string;
@@ -8,6 +9,7 @@ const {
   title,
   description = "Cara simpel buat invoice, 1 menit langsung jadi.",
 } = Astro.props;
+const ogImageUrl = new URL(ogImage.src, Astro.site);
 ---
 
 <!doctype html>
@@ -16,6 +18,14 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={`Sinvois | ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Sinvois | ${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <!-- Umami Analytics -->
     <script
       defer

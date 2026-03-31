@@ -5,153 +5,165 @@ import CtaButton from "../components/CtaButton.astro";
 import { Image } from "astro:assets";
 import AffiliateProgram from "../images/affiliate-program.svg";
 import FastInternet from "../images/fast-internet.svg";
+import Screenshot from "../images/screenshot.png";
+
+const useCases = ["Usaha Pribadi", "Pekerja Kantoran", "Freelancer"];
+const reasons = [
+  {
+    title: "Gratis",
+    content: "Kamu nggak perlu keluar uang sama sekali. Tinggal pake aja.",
+  },
+  {
+    title: "Simpel",
+    content:
+      "Cara pakenya simpel banget, cukup isi form bentar dan invois langsung jadi.",
+  },
+
+  {
+    title: "Aman",
+    content:
+      "Nggak perlu khawatir data bocor, semua data diproses di dalam browser.",
+  },
+];
 ---
 
 <Layout title="Cara Simpel Buat Invois">
   <Navbar variant="landing" />
 
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
-    <h1
-      class="font-heading font-bold text-[2.618rem] md:text-[4.236rem] leading-tight text-primary mb-8"
-    >
-      Cara Simpel Buat Invois<br />1 Menit Langsung Jadi
-    </h1>
-    <CtaButton />
-  </section>
+  <main>
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+      <h1
+        class="font-heading font-bold text-[2.618rem] md:text-[4.236rem] leading-tight text-primary mb-8"
+      >
+        Cara Simpel Buat Invois<br />1 Menit Langsung Jadi
+      </h1>
+      <Image
+        src={Screenshot}
+        alt="Tampilan Pembuatan Invois Sinvois"
+        class="w-full h-full border border-primary/30 rounded my-10"
+        width={1200}
+        height={600}
+      />
+      <CtaButton />
+    </section>
 
-  <!-- Fitur untuk siapa -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2
-          class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
-        >
-          Dibuat untuk segala keperluanmu
-        </h2>
-        <ul class="space-y-3 text-secondary">
-          <li class="flex items-center gap-3">
-            <span class="text-primary font-bold">✓</span> Usaha Pribadi
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="text-primary font-bold">✓</span> Pekerja Kantoran
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="text-primary font-bold">✓</span> Freelancer
-          </li>
-        </ul>
+    <!-- Fitur untuk siapa -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2
+            class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
+          >
+            Dibuat untuk segala keperluanmu
+          </h2>
+          <ul class="space-y-3 text-secondary">
+            {
+              useCases.map((useCase) => (
+                <li class="flex items-center gap-3">
+                  <span class="text-primary font-bold">✓</span> {useCase}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="flex justify-center">
+          <Image
+            src={AffiliateProgram}
+            alt="Ilustrasi membuat invoice"
+            class="w-full max-w-sm"
+            width={400}
+            height={400}
+            loading="lazy"
+          />
+        </div>
       </div>
-      <div class="flex justify-center">
-        <Image
-          src={AffiliateProgram}
-          alt="Ilustrasi membuat invoice"
-          class="w-full max-w-sm"
-          width={400}
-          height={400}
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Kenapa Sinvois -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <h2
-      class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
-    >
-      Kenapa harus pake Sinvois?
-    </h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
-          Gratis
-        </h3>
-        <p class="text-secondary text-base">
-          Kamu nggak perlu keluar uang sama sekali.
-        </p>
+    <!-- Kenapa Sinvois -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <h2
+        class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
+      >
+        Kenapa harus pake Sinvois?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {
+          reasons.map((reason) => (
+            <div class="border border-secondary/30 rounded-2xl p-6">
+              <h3 class="font-heading font-semibold text-lg text-primary mb-2">
+                {reason.title}
+              </h3>
+              <p class="text-secondary text-base">{reason.content}</p>
+            </div>
+          ))
+        }
       </div>
-      <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
-          Simpel
-        </h3>
-        <p class="text-secondary text-base">
-          Cukup isi form bentar, invois langsung jadi.
-        </p>
-      </div>
-      <div class="border border-secondary/30 rounded-2xl p-6">
-        <h3 class="font-heading font-semibold text-lg text-primary mb-2">
-          Aman
-        </h3>
-        <p class="text-secondary text-base">
-          Semua data diproses langsung di dalam browser tanpa disimpan ke dalam
-          server.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Bottom -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="flex justify-center order-2 md:order-1">
-        <Image
-          src={FastInternet}
-          alt="
+    <!-- CTA Bottom -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="flex justify-center order-2 md:order-1">
+          <Image
+            src={FastInternet}
+            alt="
           Ilustrasi
           freelancer"
-          class="w-full max-w-sm"
-          width={400}
-          height={400}
-          loading="lazy"
-        />
+            class="w-full max-w-sm"
+            width={400}
+            height={400}
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2
+            class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
+          >
+            Jangan sampe bisnismu terganggu urusan sepele
+          </h2>
+          <CtaButton />
+        </div>
       </div>
-      <div class="order-1 md:order-2">
-        <h2
-          class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-6"
-        >
-          Jangan sampe bisnismu terganggu urusan sepele
-        </h2>
-        <CtaButton />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="max-w-6xl mx-auto px-6 py-16">
-    <h2
-      class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
-    >
-      FAQ
-    </h2>
-    <div class="space-y-6 max-w-2xl">
-      <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">
-          Apakah data saya aman?
-        </h3>
-        <p class="text-secondary text-base">
-          Ya. Semua data hanya ada di browser kamu dan langsung hilang saat
-          halaman ditutup.
-        </p>
+    <!-- FAQ -->
+    <section id="faq" class="max-w-6xl mx-auto px-6 py-16">
+      <h2
+        class="font-heading font-bold text-[1.618rem] md:text-[2.618rem] text-primary mb-10"
+      >
+        FAQ
+      </h2>
+      <div class="space-y-6 max-w-2xl">
+        <div>
+          <h3 class="font-heading font-semibold text-base text-primary mb-1">
+            Apakah data saya aman?
+          </h3>
+          <p class="text-secondary text-base">
+            Ya. Semua data hanya ada di browser kamu dan langsung hilang saat
+            halaman ditutup.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-heading font-semibold text-base text-primary mb-1">
+            Format apa yang bisa didownload?
+          </h3>
+          <p class="text-secondary text-base">
+            Invois bisa didownload dalam format PDF.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-heading font-semibold text-base text-primary mb-1">
+            Apakah bisa dipakai di HP?
+          </h3>
+          <p class="text-secondary text-base">
+            Bisa. Sinvois didesain mobile-first dan responsif di semua ukuran
+            layar.
+          </p>
+        </div>
       </div>
-      <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">
-          Format apa yang bisa didownload?
-        </h3>
-        <p class="text-secondary text-base">
-          Invois bisa didownload dalam format PDF.
-        </p>
-      </div>
-      <div>
-        <h3 class="font-heading font-semibold text-base text-primary mb-1">
-          Apakah bisa dipakai di HP?
-        </h3>
-        <p class="text-secondary text-base">
-          Bisa. Sinvois didesain mobile-first dan responsif di semua ukuran
-          layar.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer
     class="border-t border-secondary/20 py-8 text-center text-secondary text-sm"
