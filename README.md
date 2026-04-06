@@ -2,6 +2,10 @@
 
 A website for creating invoices easily. Fill out the form, preview the finished product, and download the PDF.
 
+## Screenshot
+
+![Create Invoice Page](/src/images/screenshot.png)
+
 ## Tech Stack
 
 - [Astro 6](https://astro.build) — static site framework
