@@ -269,14 +269,24 @@ import Navbar from "../components/Navbar.astro";
         >
           <!-- injected by JS -->
         </div>
-        <button
-          id="btn-download"
-          type="button"
-          disabled
-          class="w-full bg-primary text-bg font-heading font-semibold py-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Download Invois
-        </button>
+        <div class="space-y-3 md:space-y-0 md:flex gap-3">
+          <button
+            id="btn-save-image"
+            type="button"
+            disabled
+            class="w-full bg-bg text-primary border border-primary font-heading font-semibold py-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Simpan sebagai Gambar
+          </button>
+          <button
+            id="btn-download"
+            type="button"
+            disabled
+            class="w-full bg-primary text-bg font-heading font-semibold py-3 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Simpan sebagai PDF
+          </button>
+        </div>
       </div>
     </div>
   </main>
@@ -341,6 +351,7 @@ import Navbar from "../components/Navbar.astro";
   const form = document.getElementById("invoice-form");
   const preview = document.getElementById("invoice-preview");
   const btnDownload = document.getElementById("btn-download");
+  const btnSaveImage = document.getElementById("btn-save-image");
   const btnReset = document.getElementById("btn-reset");
   const btnAddItem = document.getElementById("btn-add-item");
   const itemsContainer = document.getElementById("items-container");
@@ -481,7 +492,9 @@ import Navbar from "../components/Navbar.astro";
   }
 
   function checkDownloadBtn() {
-    btnDownload.disabled = !isFormValid();
+    const valid = isFormValid();
+    btnDownload.disabled = !valid;
+    btnSaveImage.disabled = !valid;
   }
 
   // ─── Update Preview ─────────────────────────────────────────────────────────
@@ -655,9 +668,83 @@ import Navbar from "../components/Navbar.astro";
     });
   });
 
+  // ─── Save as Image ───────────────────────────────────────────────────────────
+  btnSaveImage.addEventListener("click", async () => {
+    if (typeof html2canvas === "undefined") {
+      alert("Library belum siap, coba lagi sebentar.");
+      return;
+    }
+    btnSaveImage.textContent = "Memproses...";
+    btnSaveImage.disabled = true;
+
+    try {
+      const A4_W = 794;
+      const el = document.createElement("div");
+      el.innerHTML = preview.innerHTML;
+      Object.assign(el.style, {
+        position: "fixed",
+        top: "-9999px",
+        left: "-9999px",
+        width: A4_W + "px",
+        padding: "48px",
+        backgroundColor: "#ffffff",
+        fontFamily: "'PT Sans', sans-serif",
+        fontSize: "14px",
+        color: "#14110f",
+        boxSizing: "border-box",
+      });
+      document.body.appendChild(el);
+
+      const canvas = await html2canvas(el, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        width: A4_W,
+        windowWidth: A4_W,
+        onclone: (doc) => {
+          doc
+            .querySelectorAll('link[rel="stylesheet"], style')
+            .forEach((s) => s.remove());
+          const style = doc.createElement("style");
+          style.textContent = `
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { font-family: 'PT Sans', sans-serif; background: #ffffff; color: #14110f; font-size: 14px; }
+            .font-heading, h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+            .font-bold { font-weight: 700; } .font-semibold { font-weight: 600; }
+            .text-primary { color: #14110f; } .text-secondary { color: #353e4d; }
+            .text-sm { font-size: 0.875rem; } .text-\\[0\\.618rem\\] { font-size: 0.618rem; }
+            .text-\\[1\\.618rem\\] { font-size: 1.618rem; } .tracking-widest { letter-spacing: 0.1em; }
+            .mb-1{margin-bottom:.25rem} .mb-4{margin-bottom:1rem} .mb-6{margin-bottom:1.5rem}
+            .my-1{margin:.25rem 0} .py-2{padding:.5rem 0} .pr-4{padding-right:1rem} .pb-2{padding-bottom:.5rem}
+            .grid{display:grid} .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .gap-4{gap:1rem} .gap-1{gap:.25rem}
+            .flex{display:flex} .flex-col{flex-direction:column} .items-end{align-items:flex-end} .justify-between{justify-content:space-between}
+            .w-48{width:12rem} .w-full{width:100%}
+            table{width:100%;border-collapse:collapse} .text-left{text-align:left} .text-center{text-align:center} .text-right{text-align:right}
+            .border-b{border-bottom:1px solid #14110f} hr{border:none;border-top:1px solid #14110f}
+            .divide-y>*+*{border-top:1px solid rgba(53,62,77,0.2)}
+          `;
+          doc.head.appendChild(style);
+        },
+      });
+      document.body.removeChild(el);
+
+      const link = document.createElement("a");
+      link.download = `${val("f-invoice-no") || "invois"}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } finally {
+      btnSaveImage.textContent = "Save as Image";
+      btnSaveImage.disabled = !isFormValid();
+    }
+  });
+
   // ─── Download PDF ────────────────────────────────────────────────────────────
   btnDownload.addEventListener("click", async () => {
-    if (typeof html2canvas === "undefined" || typeof window.jspdf === "undefined") {
+    if (
+      typeof html2canvas === "undefined" ||
+      typeof window.jspdf === "undefined"
+    ) {
       alert("Library PDF belum siap, coba lagi sebentar.");
       return;
     }
@@ -673,10 +760,16 @@ import Navbar from "../components/Navbar.astro";
       const el = document.createElement("div");
       el.innerHTML = preview.innerHTML;
       Object.assign(el.style, {
-        position: "fixed", top: "-9999px", left: "-9999px",
-        width: A4_W + "px", minHeight: A4_H + "px",
-        padding: "48px", backgroundColor: "#ffffff",
-        fontFamily: "'PT Sans', sans-serif", fontSize: "14px", color: "#14110f",
+        position: "fixed",
+        top: "-9999px",
+        left: "-9999px",
+        width: A4_W + "px",
+        minHeight: A4_H + "px",
+        padding: "48px",
+        backgroundColor: "#ffffff",
+        fontFamily: "'PT Sans', sans-serif",
+        fontSize: "14px",
+        color: "#14110f",
         boxSizing: "border-box",
       });
       document.body.appendChild(el);
@@ -688,7 +781,9 @@ import Navbar from "../components/Navbar.astro";
         width: A4_W,
         windowWidth: A4_W,
         onclone: (doc) => {
-          doc.querySelectorAll('link[rel="stylesheet"], style').forEach((s) => s.remove());
+          doc
+            .querySelectorAll('link[rel="stylesheet"], style')
+            .forEach((s) => s.remove());
           const style = doc.createElement("style");
           style.textContent = `
             * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -733,7 +828,11 @@ import Navbar from "../components/Navbar.astro";
       document.body.removeChild(el);
 
       const imgData = canvas.toDataURL("image/jpeg", 0.92);
-      const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
       const pageW = pdf.internal.pageSize.getWidth();
       const pageH = pdf.internal.pageSize.getHeight();
       // Fit entire content to 1 page
@@ -750,5 +849,3 @@ import Navbar from "../components/Navbar.astro";
   renderItems();
   updatePreview();
 </script>
-
-
